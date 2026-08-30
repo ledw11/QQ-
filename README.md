@@ -44,6 +44,7 @@
 - 仅支持**电脑端 QQ**（QQ.exe），不支持 TIM、QQ 轻聊版、手机 QQ
 - 新版 QQ（NT 架构）窗口标题统一为「QQ」，无法自动识别特定好友，因此使用手动开关模式
 - 脚本会临时操作剪贴板，发送后自动恢复原剪贴板内容
+- 可以去https://www.bilibili.com/video/BV1VMtH6sEFV/?share_source=copy_web&vd_source=02051c859862e769cdec53ec04b2d049查看教程
 
 
 
