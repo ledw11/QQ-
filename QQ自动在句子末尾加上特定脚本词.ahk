@@ -8,7 +8,7 @@ if not A_IsAdmin
     ExitApp
 }
 
-
+; 全局状态
 addMode := false
 
 
@@ -16,13 +16,13 @@ F7::
     addMode := !addMode
     if (addMode)
     {
-        Menu, Tray, Tip,已开启
-        TrayTip, 已开启, 2, 1
+        Menu, Tray, Tip, 加喵~模式：已开启
+        TrayTip, 加喵~模式, 已开启，当前QQ聊天会自动加喵~, 2, 1
     }
     else
     {
-        Menu, Tray, Tip, 已关闭
-        TrayTip, 已关闭, 2, 0
+        Menu, Tray, Tip, 加喵~模式：已关闭
+        TrayTip, 加喵~模式, 已关闭, 2, 0
     }
 return
 
@@ -40,7 +40,7 @@ F8::
     FileDelete, %outFile%
     FileAppend, %psLine%, %psFile%
 
-
+    ; 非阻塞启动，最多等5秒，避免卡住脚本
     Run, cmd /c "powershell -ExecutionPolicy Bypass -File ""%psFile%"" > ""%outFile%""",, Hide
     Loop, 50
     {
@@ -78,7 +78,7 @@ Enter::
 ^Enter::
     useCtrl := (A_ThisHotkey = "^Enter")
 
-
+    ; 没开启加喵~模式，原样发送
     if (!addMode)
     {
         if (useCtrl)
@@ -117,7 +117,7 @@ Enter::
     }
 
     txt := RegExReplace(txt, "[\s。！？!?~…,，.、；;：:]+$", "")
-    txt := txt . "改成你要加的特定词"
+    txt := txt . "喵~"
 
     Clipboard := ""
     Clipboard := txt
@@ -141,4 +141,3 @@ return
 #If
 
 F9::ExitApp
-
